@@ -19,21 +19,21 @@ module.exports = function(app){
 		
 	});
 	
-//	app.post('/login', function(req, res){
-//		
-//		var login = req.body;
-//		
-//		var connection = app.infra.connectionFactory();
-//		
-//		console.log(login);
-//		
-//		if(login.perfil == 'AUDITOR'){
-//			
-//			res.redirect('/naoconformidade/input');		
-//		}else if(login.perfil == 'FISCAL'){
-//			
-//			res.redirect('/naoconformidade');		
-//		}
-//		
-//	});
+	app.post('/login', function(req, res){
+		
+		var login = req.body;
+		
+		var connection = app.infra.connectionFactory();
+		
+		console.log(login);
+		
+		if(login.perfil == 'AUDITOR'){
+			
+			res.redirect('/naoconformidade/input');		
+		}else if(login.perfil == 'FISCAL'){
+			
+			res.redirect('/naoconformidade');		
+		}
+		
+	});
 }
