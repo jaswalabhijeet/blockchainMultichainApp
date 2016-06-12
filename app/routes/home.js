@@ -11,16 +11,11 @@ module.exports = function(app){
 				return next(err);
 	    	}	       	 	    	
 
-	    	var json = JSON.stringify(result);
-	    	
-	    	console.log(result);
-	    	
-	    	console.log(json);
-
 	    	res.render('home/index', {lista: {}, info: result});
 		});
 		
 	});
+	
 	
 	app.post('/login', function(req, res){
 		

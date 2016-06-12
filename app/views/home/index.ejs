@@ -91,7 +91,18 @@
 							<th>Ocorrência</th>
 						</tr>
 					</thead>
-					
+					<tbody>
+						<% for(var i=0; i< 5;i++){%>
+							<tr>
+								<td>
+									<%=lista[i].data%>
+								</td>
+								<td>
+									<%=lista[i].descricao%>
+								</td>
+							</tr>
+						<%}%>
+					</tbody>
 				</table>
 			</div>
 		</div>
