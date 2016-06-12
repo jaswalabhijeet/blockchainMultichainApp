@@ -1,9 +1,10 @@
+
 module.exports = function(app){
 	
 	app.get('/', function(req, res){
-		var connection = app.infra.connectionFactory();
+		var connection = app.infra.connectionFactory;
 
-		getInfo((err, info) => {
+		connection.getInfo((err, info) => {
 			
 			if(err){
 			
@@ -23,7 +24,7 @@ module.exports = function(app){
 		
 		var login = req.body;
 		
-		var connection = app.infra.connectionFactory();
+		var connection = app.infra.connectionFactory;
 		
 		console.log(login);
 		

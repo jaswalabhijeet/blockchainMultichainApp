@@ -7,7 +7,7 @@ module.exports = function(app){
 		res.render('naoconformidade/listagem.ejs', {lista: results});
 		
 		//Possivel, pois o express-load carregou esta dependencia no arquivo express.js
-//		var connection = app.infra.connectionFactory();
+//		var connection = app.infra.connectionFactory;
 //		var dao = new app.infra.NaoconformidadeDAO(connection);
 //		
 //		dao.listar(function(err, results){
@@ -59,7 +59,7 @@ module.exports = function(app){
 		
 		//TODO: tmp
 		res.redirect('/naoconformidade');
-//		var connection = app.infra.connectionFactory();
+//		var connection = app.infra.connectionFactory;
 //	 
 //		var dao = new app.infra.NaoconformidadeDAO(connection);
 //		
