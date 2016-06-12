@@ -30,11 +30,28 @@
 		
 		<div class="panel-body">
 		
-		<div class="col-md-12">
-			<div class="col-md-4">
-				<%= info %>
+			<div class="col-md-12">
+				<div class="col-md-4">
+					<table class="table table-bordered table-condensed">
+						<caption>Detalhes da Blockchain[Recuperado via Json RPC pelo método getInfo]</caption>
+						<thead>
+							<tr>
+								<th>Version</th>
+								<th>Chain Name</th>
+								<th>Node Address</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><%= info.version %></td>
+								<td><%= info.chainname %></td>
+								<td><%= info.nodeaddress %></td>
+							</tr>
+						</tbody>
+					</table>
+					
+				</div>
 			</div>
-		</div>
 		
 		
 			<form action="/login" method="post">
