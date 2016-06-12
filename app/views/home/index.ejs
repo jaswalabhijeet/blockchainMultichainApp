@@ -92,15 +92,18 @@
 						</tr>
 					</thead>
 					<tbody>
-						<% for(var i=0; i< 5;i++){%>
-							<tr>
-								<td>
-									<%=lista[i].data%>
-								</td>
-								<td>
-									<%=lista[i].descricao%>
-								</td>
-							</tr>
+						<%if (lista.length > 0) { var max = lista.length > 5 ? 5 : lista.length%>
+							<% var max = lista.length > 5 ? 5 : lista.length; %>
+							<% for(var i=0; i< max;i++){%>
+								<tr>
+									<td>
+										<%=lista[i].data%>
+									</td>
+									<td>
+										<%=lista[i].descricao%>
+									</td>
+								</tr>
+							<%}%>
 						<%}%>
 					</tbody>
 				</table>
