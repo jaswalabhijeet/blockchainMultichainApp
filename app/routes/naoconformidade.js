@@ -32,12 +32,13 @@ module.exports = function(app){
 	app.get('/naoconformidade/input', function(req, res, next){
 		var connection = app.infra.connectionFactory;
 		
-		connection.getAddresses({"verbose": true},(err, info) => {
+		connection.getAddresses({"verbose": true},(err, result) => {
         	if(err){
         		return next(err);
         	}
-   	 
-        	res.render('naoconformidade/input.ejs', {errosValidacao: {}, naoconformidade: {}});
+        	console.log(result);
+        	
+        	res.render('naoconformidade/input.ejs', {errosValidacao: {}, naoconformidade: {}, address: result});
     	});  
 		
 	});
