@@ -29,9 +29,17 @@ module.exports = function(app){
 //		connection.end();
 	});	
 	
-	app.get('/naoconformidade/input', function(req, res){
+	app.get('/naoconformidade/input', function(req, res, next){
+		var connection = app.infra.connectionFactory;
 		
-		res.render('naoconformidade/input.ejs', {errosValidacao: {}, naoconformidade: {}});
+		connection.getAddresses({"verbose": true},(err, info) => {
+        	if(err){
+        		return next(err);
+        	}
+   	 
+        	res.render('naoconformidade/input.ejs', {errosValidacao: {}, naoconformidade: {}});
+    	});  
+		
 	});
 	
 	app.post('/naoconformidade', function(req, res, next){
@@ -60,9 +68,13 @@ module.exports = function(app){
 		var connection = app.infra.connectionFactory;
 		
 		console.log("Nao Conformidade: "+naoconformidade);
+		
 		connection.sendwithmetadata({"address": true, "amount": 0, "data": naoconformidade},(err, result) => {
+			
 			console.log("Err: "+err);
+			
 			console.log("Result: "+result);
+			
 			if(err){
 				return next(err);
         	}
