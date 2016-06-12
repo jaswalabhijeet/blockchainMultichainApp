@@ -9,9 +9,7 @@ module.exports = function(app){
 			if(err){
 			
 				return next(err);
-	    	}
-	       	 
-	    	res.send(info);
+	    	}	       	 	    	
 
 	    	var json = JSON.stringify(info);
 
