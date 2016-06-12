@@ -34,7 +34,7 @@ module.exports = function(app){
 		res.render('naoconformidade/input.ejs', {errosValidacao: {}, naoconformidade: {}});
 	});
 	
-	app.post('/naoconformidade', function(req, res){
+	app.post('/naoconformidade', function(req, res, next){
 		
 		var naoconformidade = req.body;
 
@@ -57,14 +57,19 @@ module.exports = function(app){
 			return;
 		}
 		
-		//TODO: tmp
-		res.redirect('/naoconformidade');
-//		var connection = app.infra.connectionFactory;
-//	 
-//		var dao = new app.infra.NaoconformidadeDAO(connection);
-//		
-//		dao.salvar(naoconformidade, function(err, results){
-//			res.redirect('/naoconformidade');		
-//		});
+		var connection = app.infra.connectionFactory;
+		
+		console.log("Nao Conformidade: "+naoconformidade);
+		connection.sendwithmetadata({"address": true, "amount": 0, "data": naoconformidade},(err, result) => {
+			console.log("Err: "+err);
+			console.log("Result: "+result);
+			if(err){
+				return next(err);
+        	}
+   	 
+			res.redirect('/naoconformidade');
+        	
+		});
+		
 	});
 }
