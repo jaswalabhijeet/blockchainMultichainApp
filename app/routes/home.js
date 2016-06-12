@@ -4,16 +4,20 @@ module.exports = function(app){
 	app.get('/', function(req, res){
 		var connection = app.infra.connectionFactory;
 
-		connection.getInfo((err, info) => {
+		connection.getInfo((err, result) => {
 			
 			if(err){
 			
 				return next(err);
 	    	}	       	 	    	
 
-	    	var json = JSON.stringify(info);
+	    	var json = JSON.stringify(result);
+	    	
+	    	console.log(result);
+	    	
+	    	console.log(json);
 
-	    	res.render('home/index', {lista: {}, info: json});
+	    	res.render('home/index', {lista: {}, info: result});
 		});
 		
 	});
