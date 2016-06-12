@@ -37,6 +37,7 @@ module.exports = function(app){
         		return next(err);
         	}
         	console.log(result);
+        	console.log(JSON.parse(result));
         	res.render('naoconformidade/input.ejs', {errosValidacao: {}, naoconformidade: {}, address: JSON.parse(result)});
     	});  
 		
