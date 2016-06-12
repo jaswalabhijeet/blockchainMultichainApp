@@ -1,0 +1,89 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Reg. Não Conformidade</title>
+	
+	<!-- IMPORTS DOS CSS, JAVASCRIPT -->
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="/3th-party/font-awesome/css/font-awesome.min.css" >
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="/3th-party/bootstrap/css/bootstrap.min.css" >
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="/3th-party/bootstrap/css/bootstrap-theme.min.css">
+	
+	<!-- JQUERY -->
+	<script src="/3th-party/jquery/jquery-2.2.4.min.js" ></script>
+
+	<!-- Bootstrap JavaScript -->
+	<script src="/3th-party/bootstrap/js/bootstrap.min.js" ></script>
+	
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="panel-heading">
+			<h1>Entrar</h1>
+		</div>
+		
+		<div class="panel-body">
+		
+		
+			<form action="/login" method="post">
+				
+				<div class="col-md-12">
+					<div class="col-md-4">
+						 <div class="form-group"> 
+							<label for="perfil">Perfil</label> 
+							<select id="perfil" name="perfil" class="form-control">
+								<option value="AUDITOR">Auditor - Gerar Não conformidades</option>
+								<option value="FISCAL">Fiscal - Visualizar Não Conformidades</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-12">
+					<div class="col-md-4">				
+						<div class="form-actions" style="float: right;">
+							<input type="submit" value ="Entrar" class="btn btn-default"/>
+						</div>
+					</div>
+				</div>
+		
+			</form>
+			
+			<div class="col-md-12">&nbsp;</div>
+			
+			<div class="col-md-12">&nbsp;</div>
+			
+			<div class="col-md-12">
+				<table class="table table-bordered table-condensed">
+					<caption>Top 5 Ocorrências de Não-Conformidade</caption>
+					<thead>
+						<tr>
+							<th>Data</th>
+							<th>Ocorrência</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(var i=0; i< 5;i++){%>
+							<tr>
+								<td>
+									<%=lista[i].data%>
+								</td>
+								<td>
+									<%=lista[i].descricao%>
+								</td>
+							</tr>
+						<%}%>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

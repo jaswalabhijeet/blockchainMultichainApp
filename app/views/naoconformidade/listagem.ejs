@@ -1,0 +1,69 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Reg. Não Conformidade</title>
+	
+	<!-- IMPORTS DOS CSS, JAVASCRIPT -->
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="/3th-party/font-awesome/css/font-awesome.min.css" >
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="/3th-party/bootstrap/css/bootstrap.min.css" >
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="/3th-party/bootstrap/css/bootstrap-theme.min.css">
+	
+	<!-- JQUERY -->
+	<script src="/3th-party/jquery/jquery-2.2.4.min.js" ></script>
+
+	<!-- Bootstrap JavaScript -->
+	<script src="/3th-party/bootstrap/js/bootstrap.min.js" ></script>
+</head>
+
+<body>
+	<div class="container-fluid">
+
+		<div class="col-md-12">
+			<div class="col-md-2">
+				<h1>Listagem</h1>
+			</div>
+			<div class="col-md-2">
+				<h1><a href="/" class="btn btn-default">Sair</a></h1>
+			</div>
+		</div> 
+
+		
+		<div class="panel-body">
+		
+			<div class="col-md-12">
+			
+				<table class="table table-bordered table-condensed">
+					
+					<caption>Ocorrências de Não-Conformidade registradas</caption>
+					
+					<thead>
+						<tr>
+							<th>Data</th>
+							<th>Ocorrência</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(var i=0; i< lista.length;i++){%>
+							<tr>
+								<td>
+									<%=lista[i].data%>
+								</td>
+								<td>
+									<%=lista[i].descricao%>
+								</td>
+							</tr>
+						<%}%>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

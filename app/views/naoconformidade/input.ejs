@@ -1,0 +1,88 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Reg. Não Conformidade</title>
+	
+	<!-- IMPORTS DOS CSS, JAVASCRIPT -->
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="/3th-party/font-awesome/css/font-awesome.min.css" >
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="/3th-party/bootstrap/css/bootstrap.min.css" >
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="/3th-party/bootstrap/css/bootstrap-theme.min.css">
+	
+	<!-- JQUERY -->
+	<script src="/3th-party/jquery/jquery-2.2.4.min.js" ></script>
+
+	<!-- Bootstrap JavaScript -->
+	<script src="/3th-party/bootstrap/js/bootstrap.min.js" ></script>
+</head>
+<body>
+	<div class="container-fluid">
+		
+		
+		<div class="erros">
+			<%if(errosValidacao){%>		
+				<ul>
+					<% for(var i=0; i < errosValidacao.length; i++){ %>
+						<li><%= errosValidacao[i].param %> - <%= errosValidacao[i].msg %></li>
+					<%}%>
+				</ul>
+			<%}%>
+		</div>
+		
+		<div class="col-md-12">
+			<div class="col-md-4">
+				<h1>Registrar Não conformidade</h1>
+			</div>
+			<div class="col-md-2">
+				<h1><a href="/" class="btn btn-default">Sair</a></h1>
+			</div>
+		</div> 				
+		
+		<div class="col-md-12">&nbsp;</div>		
+				
+		<form action="/naoconformidade" method="post">
+			<div class="col-md-12">
+				<div class="col-md-4">
+					<div class="form-group">
+						<label for="data">Data</label> 
+						<input type="date" class="form-control" id="data" name="data" value="<%= naoconformidade.data%>">
+					</div>
+				</div>
+			</div>
+	
+			<div class="col-md-12">
+				<div class="col-md-4">
+					<div class="form-group">
+						<label for="descricao">Tipo de Ocorrência</label> 
+						<select id="descricao" name="descricao" class="form-control">
+							<option>Falta de uso do capacete de seguranca</option>
+							<option>Falta de uso de colete</option>
+							<option>Sem luvas de seguranca</option>
+							<option>Sem botas</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="col-md-4">				
+					<div class="form-actions" style="float: right;">
+						<input type="submit" value ="Gravar" class="btn btn-default"/>
+					</div>
+				</div>
+			</div>
+		</form>
+		
+		<script type="text/javascript">
+			(function() {
+				document.getElementById('data').value = new Date();
+			})();
+		</script>
+	</div>
+</body>
+
+</html>

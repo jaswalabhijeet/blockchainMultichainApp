@@ -42,16 +42,16 @@ app.get('/get-info-json', function (req, res) {
 	multichain.getInfo((err, info) => {
        	 
     	if(err){
-            	throw err;
-        	}
+        	throw err;
+    	}
        	 
-        	res.send(info);
+    	res.send(info);
 
     	var json = JSON.stringify(info);
 
     	res.end(json);
                	 
-    	});    
+	});    
    
 });
 
