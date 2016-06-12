@@ -4,7 +4,7 @@ module.exports = function(app){
 	app.get('/naoconformidade', function(req, res, next){
 		
 		//TODO: tmp
-		res.render('naoconformidade/listagem.ejs', {lista: results});
+		res.render('naoconformidade/listagem.ejs', {lista: {}});
 		
 		//Possivel, pois o express-load carregou esta dependencia no arquivo express.js
 //		var connection = app.infra.connectionFactory;
