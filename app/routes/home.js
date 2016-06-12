@@ -21,9 +21,7 @@ module.exports = function(app){
 		
 		var login = req.body;
 		
-		var connection = app.infra.connectionFactory;
-		
-		console.log(login);
+		var connection = app.infra.connectionFactory;				
 		
 		if(login.perfil == 'AUDITOR'){
 			

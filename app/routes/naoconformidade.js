@@ -49,6 +49,7 @@ module.exports = function(app){
 
 		//Validações possíveis graças ao express-validator :)
 		req.assert('data', 'Data é obrigatória').notEmpty();
+		req.assert('address', 'Address é obrigatório').notEmpty();
 		
 		var erros = req.validationErrors();
 		
@@ -70,7 +71,7 @@ module.exports = function(app){
 		
 		console.log("Nao Conformidade: "+naoconformidade);
 		
-		connection.sendwithmetadata({"address": true, "amount": 0, "data": naoconformidade},(err, result) => {
+		connection.sendwithmetadata({"address": naoconformidade.address, "amount": 0, "data": naoconformidade},(err, result) => {
 			
 			console.log("Err: "+err);
 			
