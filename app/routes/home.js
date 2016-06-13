@@ -21,14 +21,24 @@ module.exports = function(app){
 		
 		var login = req.body;
 		
-		var connection = app.infra.connectionFactory;				
 		
 		if(login.perfil == 'AUDITOR'){
 			
 			res.redirect('/naoconformidade/input');		
 		}else if(login.perfil == 'FISCAL'){
+
+			var connection = app.infra.connectionFactory;				
 			
-			res.redirect('/naoconformidade');		
+			connection.getAddresses({"verbose": true},(err, result) => {
+	        	if(err){
+	        		return next(err);
+	        	}
+
+	        	console.log("Fiscal indo pra listagem do address: result.addres: "+result.address);
+	        	
+	        	res.redirect('/naoconformidade?address=' + result.address+'&qtdRegistros='+100);		
+	    	});  
+			
 		}
 		
 	});
