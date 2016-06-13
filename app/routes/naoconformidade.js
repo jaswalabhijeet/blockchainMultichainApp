@@ -73,7 +73,7 @@ module.exports = function(app){
 		console.log("sendWithMetadata-JSON: "+JSON.stringify(naoconformidade));
 		
 		connection.sendWithMetadata(
-				{"address": naoconformidade.address, "amount": 0, "data": JSON.stringify(naoconformidade)},
+				{"address": naoconformidade.address, "amount": 0, "data": "7b2264617461223a2022323031362d30362d31312032313a31373a3030222c202264657363726963616f223a202246616c74612064652075736f20646f206361706163657465227d"},
 				(err, result) => {
 			
 			console.log("Err: "+err);
