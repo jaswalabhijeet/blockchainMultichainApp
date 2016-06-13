@@ -85,9 +85,7 @@ module.exports = function(app){
    	 
 			res.redirect('/naoconformidade');
         	
-		});
-		
-		res.redirect('/naoconformidade');
+		});				
 		
 	});
 }
