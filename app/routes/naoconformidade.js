@@ -69,23 +69,21 @@ module.exports = function(app){
 		var connection = app.infra.connectionFactory;
 		
 		console.log("Address: "+naoconformidade.address);
-		console.log("Data: "+naoconformidade.data);
-		console.log("Descricao: "+naoconformidade.descricao);
 		console.log("JSON: "+JSON.stringify(naoconformidade));
 		
-//		connection.sendwithmetadata({"address": naoconformidade.address, "amount": 0, "data": naoconformidade},(err, result) => {
-//			
-//			console.log("Err: "+err);
-//			
-//			console.log("Result: "+result);
-//			
-//			if(err){
-//				return next(err);
-//        	}
-//   	 
-//			res.redirect('/naoconformidade');
-//        	
-//		});
+		connection.sendwithmetadata({"address": naoconformidade.address, "amount": 0, "data": JSON.stringify(naoconformidade)},(err, result) => {
+			
+			console.log("Err: "+err);
+			
+			console.log("Result: "+result);
+			
+			if(err){
+				return next(err);
+        	}
+   	 
+			res.redirect('/naoconformidade');
+        	
+		});
 		
 		res.redirect('/naoconformidade');
 		
