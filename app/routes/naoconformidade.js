@@ -24,7 +24,7 @@ module.exports = function(app){
 				return next(JSON.stringify(err));
         	}
 			
-			res.render('naoconformidade/listagem.ejs', {lista: JSON.stringify(result)});
+			res.render('naoconformidade/listagem.ejs', {lista: result});
         	
 		});	
 		
