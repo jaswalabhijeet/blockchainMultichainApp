@@ -15,9 +15,9 @@ module.exports = function(app){
 				{"address": addressParam, "count": qtdRegistros},
 				(err, result) => {
 			
-			console.log("listAddressTransactions-Err: "+err);
+			console.log("listAddressTransactions-Err: "+JSON.stringify(err));
 			
-			console.log("listAddressTransactions-Result: "+result);
+			console.log("listAddressTransactions-Result: "+JSON.stringify(result));
 			
 			if(err){
 				return next(err);
