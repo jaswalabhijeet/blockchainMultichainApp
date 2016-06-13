@@ -4,16 +4,29 @@ module.exports = function(app){
 	app.get('/', function(req, res){
 		var connection = app.infra.connectionFactory;
 
-		connection.getInfo((err, result) => {
+		connection.getInfo((err, resultInfo) => {
 			
 			if(err){
 			
 				return next(err);
 	    	}	       	 	
 			
-			console.log(result);
-			
-	    	res.render('home/index', {lista: {}, info: result});
+			connection.listAddressTransactions(
+					{"address": "15uCL1PGMhfqor9mNpZC21nuFUFrjUGPWpFVu1", "count": 5},
+					(err, resultAddress, resultInfo) => {
+				
+				console.log("listAddressTransactions-Err: "+JSON.stringify(err));
+				
+				console.log("listAddressTransactions-Result: "+JSON.stringify(resultAddress));
+				
+				if(err){
+					return next(JSON.stringify(err));
+	        	}								
+				
+				res.render('home/index', {lista: resultAddress, info: resultInfo});
+	        	
+			});	
+				    	
 		});
 		
 	});

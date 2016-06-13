@@ -87,8 +87,8 @@
 					<caption>Top 5 Ocorrências de Não-Conformidade</caption>
 					<thead>
 						<tr>
-							<th>Data</th>
-							<th>Ocorrência</th>
+							<th>ID. Transação</th>
+							<th>Unix timestamp</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -97,10 +97,10 @@
 							<% for(var i=0; i< max;i++){%>
 								<tr>
 									<td>
-										<%=lista[i].data%>
+										<%=lista[i].txid%>
 									</td>
 									<td>
-										<%=lista[i].descricao%>
+										<%=lista[i].time%>
 									</td>
 								</tr>
 							<%}%>
