@@ -11,9 +11,8 @@ module.exports = function(app){
 				return next(err);
 	    	}	       	 	
 			
-			connection.listAddressTransactions(
+			connection.listAddressTransactions(resultInfo,
 					{"address": "15uCL1PGMhfqor9mNpZC21nuFUFrjUGPWpFVu1", "count": 5},
-					resultInfo,
 					(err, resultAddress) => {
 				
 				console.log("listAddressTransactions-Err: "+JSON.stringify(err));
