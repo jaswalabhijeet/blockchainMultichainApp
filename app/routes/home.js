@@ -13,7 +13,8 @@ module.exports = function(app){
 			
 			connection.listAddressTransactions(
 					{"address": "15uCL1PGMhfqor9mNpZC21nuFUFrjUGPWpFVu1", "count": 5},
-					(err, resultAddress, resultInfo) => {
+					resultInfo,
+					(err, resultAddress) => {
 				
 				console.log("listAddressTransactions-Err: "+JSON.stringify(err));
 				
