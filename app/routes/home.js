@@ -34,7 +34,7 @@ module.exports = function(app){
 	        		return next(err);
 	        	}
 
-	        	console.log("Fiscal indo pra listagem do address, result.addres: "+result.address);
+	        	console.log("Fiscal indo pra listagem do address, result.addres: "+JSON.stringify(result));
 	        	
 	        	res.redirect('/naoconformidade?address=' + result.address+'&qtdRegistros='+100);		
 	    	});  
