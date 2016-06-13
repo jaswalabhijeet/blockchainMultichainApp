@@ -17,7 +17,9 @@ module.exports = function(app){
 				
 				console.log("listAddressTransactions-Err: "+JSON.stringify(err));
 				
-				console.log("listAddressTransactions-Result: "+JSON.stringify(resultAddress));
+				console.log("listAddressTransactions-resultAddress: "+JSON.stringify(resultAddress));
+				
+				console.log("listAddressTransactions-resultInfo: "+JSON.stringify(resultInfo));
 				
 				if(err){
 					return next(JSON.stringify(err));
