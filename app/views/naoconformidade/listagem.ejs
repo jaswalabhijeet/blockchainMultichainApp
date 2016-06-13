@@ -36,6 +36,22 @@
 					+ ':' + sec;
 			return time;
 		}
+		
+		function fromHex(hex){
+			var str;
+			try{
+				str = decodeURIComponent(hex.replace(/(..)/g,'%$1'));
+			}catch(e){
+				str = hex;
+				console.log('invalid hex input: ' + hex);
+			}
+			return str;
+		}
+		
+		function fnDecodificarHexadecimal(hex){
+
+			alert(fromHex(hex));
+		}
 	</script>
 </head>
 
@@ -64,7 +80,7 @@
 						<tr>
 							<th>ID. Transação</th>
 							<th>Unix timestamp</th>
-							<th>Dados</th>
+							<th>Dados[Hexadecimal]</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -77,7 +93,7 @@
 									<%=lista[i].time%>
 								</td>
 								<td>
-									<%=fromHex(lista[i].data)%>
+									<a href="javascript: fnDecodificarHexadecimal('<%=lista[i].data%>')" title="" > <%=lista[i].data%> </a>
 								</td>
 							</tr>
 						<%}%>
