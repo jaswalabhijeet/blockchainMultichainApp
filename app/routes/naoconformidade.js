@@ -71,19 +71,21 @@ module.exports = function(app){
 		
 		console.log("Nao Conformidade: "+naoconformidade);
 		
-		connection.sendwithmetadata({"address": naoconformidade.address, "amount": 0, "data": naoconformidade},(err, result) => {
-			
-			console.log("Err: "+err);
-			
-			console.log("Result: "+result);
-			
-			if(err){
-				return next(err);
-        	}
-   	 
-			res.redirect('/naoconformidade');
-        	
-		});
+//		connection.sendwithmetadata({"address": naoconformidade.address, "amount": 0, "data": naoconformidade},(err, result) => {
+//			
+//			console.log("Err: "+err);
+//			
+//			console.log("Result: "+result);
+//			
+//			if(err){
+//				return next(err);
+//        	}
+//   	 
+//			res.redirect('/naoconformidade');
+//        	
+//		});
+		
+		res.redirect('/naoconformidade');
 		
 	});
 }
