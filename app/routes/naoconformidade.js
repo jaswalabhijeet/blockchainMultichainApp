@@ -8,11 +8,12 @@ module.exports = function(app){
 		var addressParam = req.query.address;
 
 		var qtdRegistros = req.query.qtdRegistros;
+		console.log(addressParam +" || "+qtdRegistros);
 
 		//["address", {"count": 10}, {"skip": 0}, {"verbose": false}]
 		
 		connection.listAddressTransactions(
-				{"address": addressParam, "count": qtdRegistros},
+				{"address": addressParam, "count": parseInt(qtdRegistros)},
 				(err, result) => {
 			
 			console.log("listAddressTransactions-Err: "+JSON.stringify(err));
