@@ -86,6 +86,8 @@ Acesse a app por: [localhost:8080](localhost:8080)
 
 ![Listagem das transações](https://github.com/rodolfocruzbsb/blockchainMultichainApp/blob/master/prints/3_tela_para_listar_as_transacoes_registradas.png)
 
+![Detalhando dados da Transação](https://github.com/rodolfocruzbsb/blockchainMultichainApp/blob/master/prints/4_tela_listagem_detalhe_transacao.png)
+
 ## Referências
 
 - [Multichain](http://www.multichain.com/)
