@@ -22,7 +22,7 @@
 	
 	<script type="text/javascript">
 		
-		function fnGetDateFrom(UNIX_timestamp) {
+		function fnTimeConverter(UNIX_timestamp) {
 			var a = new Date(UNIX_timestamp * 1000);
 			var months = [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul',
 					'Ago', 'Set', 'Out', 'Nov', 'Dez' ];
@@ -35,6 +35,10 @@
 			var time = date + '/' + month + '/' + year + ' ' + hour + ':' + min
 					+ ':' + sec;
 			return time;
+		}
+		
+		function fnGetDateFrom(unixMilis){
+			alert(fnTimeConverter(unixMilis));
 		}
 		
 		function fromHex(hex){
