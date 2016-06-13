@@ -36,8 +36,7 @@ module.exports = function(app){
         	if(err){
         		return next(err);
         	}
-        	console.log(result);
-        	
+
         	res.render('naoconformidade/input.ejs', {errosValidacao: {}, naoconformidade: {}, address: result});
     	});  
 		
@@ -69,7 +68,9 @@ module.exports = function(app){
 		
 		var connection = app.infra.connectionFactory;
 		
-		console.log("Nao Conformidade: "+naoconformidade[0]);
+		console.log("Address: "+naoconformidade.address);
+		console.log("Data: "+naoconformidade.data);
+		console.log("Descricao: "+naoconformidade.descricao);
 		
 //		connection.sendwithmetadata({"address": naoconformidade.address, "amount": 0, "data": naoconformidade},(err, result) => {
 //			
