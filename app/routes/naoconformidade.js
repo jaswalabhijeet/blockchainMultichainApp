@@ -3,30 +3,30 @@ module.exports = function(app){
 	
 	app.get('/naoconformidade', function(req, res, next){
 		
-		//TODO: tmp
-		res.render('naoconformidade/listagem.ejs', {lista: {}});
+		var connection = app.infra.connectionFactory;
 		
-		//Possivel, pois o express-load carregou esta dependencia no arquivo express.js
-//		var connection = app.infra.connectionFactory;
-//		var dao = new app.infra.NaoconformidadeDAO(connection);
-//		
-//		dao.listar(function(err, results){
-//			
-//			if(err){
-//				return next(err);
-//			}
-//			
-//			res.format({
-//				html: function(){					 
-//					res.render('naoconformidade/listagem.ejs', {lista: results});
-//				},
-//				json: function(){
-//					res.json(results);
-//				}
-//			});
-//		});
-//		
-//		connection.end();
+		var addressParam = req.query.address;
+
+		var qtdRegistros = req.query.qtdRegistros;
+
+		//["address", {"count": 10}, {"skip": 0}, {"verbose": false}]
+		
+		connection.listAddressTransactions(
+				{"address": addressParam, "count": qtdRegistros},
+				(err, result) => {
+			
+			console.log("listAddressTransactions-Err: "+err);
+			
+			console.log("listAddressTransactions-Result: "+result);
+			
+			if(err){
+				return next(err);
+        	}
+			
+			res.render('naoconformidade/listagem.ejs', {lista: {}});
+        	
+		});	
+		
 	});	
 	
 	app.get('/naoconformidade/input', function(req, res, next){
@@ -68,8 +68,8 @@ module.exports = function(app){
 		
 		var connection = app.infra.connectionFactory;
 		
-		console.log("Address: "+naoconformidade.address);
-		console.log("JSON: "+JSON.stringify(naoconformidade));
+		console.log("sendWithMetadata-Address: "+naoconformidade.address);
+		console.log("sendWithMetadata-JSON: "+JSON.stringify(naoconformidade));
 		
 		connection.sendWithMetadata(
 				{"address": naoconformidade.address, "amount": 0, "data": JSON.stringify(naoconformidade)},
@@ -83,7 +83,7 @@ module.exports = function(app){
 				return next(err);
         	}
    	 
-			res.redirect('/naoconformidade');
+			res.redirect('/naoconformidade?address=' + naoconformidade.address+'&qtdRegistros='+100);
         	
 		});				
 		
