@@ -11,9 +11,8 @@ function fromHex(hex,str){
 
 function toHex(str,hex){
   try{
-    hex = unescape(encodeURIComponent(str));
-    .split('').map(function(v){
-      return v.charCodeAt(0).toString(16);
+    hex = unescape(encodeURIComponent(str)).split('').map(function(v){
+    	return v.charCodeAt(0).toString(16);
     }).join('');
   }
   catch(e){
@@ -22,6 +21,7 @@ function toHex(str,hex){
   }
   return hex;
 }
+
 module.exports = function(app){
 	
 	app.get('/naoconformidade', function(req, res, next){
