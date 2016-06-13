@@ -71,7 +71,9 @@ module.exports = function(app){
 		console.log("Address: "+naoconformidade.address);
 		console.log("JSON: "+JSON.stringify(naoconformidade));
 		
-		connection.sendwithmetadata({"address": naoconformidade.address, "amount": 0, "data": JSON.stringify(naoconformidade)},(err, result) => {
+		connection.sendWithMetadata(
+				{"address": naoconformidade.address, "amount": 0, "data": JSON.stringify(naoconformidade)},
+				(err, result) => {
 			
 			console.log("Err: "+err);
 			
