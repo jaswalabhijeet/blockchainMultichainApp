@@ -79,6 +79,13 @@ npm start
 
 Acesse a app por: [localhost:8080](localhost:8080)
 
+## Imagens da Aplicação
+![Tela Inicial](https://github.com/rodolfocruzbsb/blockchainMultichainApp/blob/master/1_tela_inicial.png)
+
+![Inclusão de uma transação com a Não Conformidade](https://github.com/rodolfocruzbsb/blockchainMultichainApp/blob/master/2_tela_para_registrar_nao_conformidades.png)
+
+![Listagem das transações](https://github.com/rodolfocruzbsb/blockchainMultichainApp/blob/master/3_tela_para_listar_as_transacoes_registradas.png)
+
 ## Referências
 
 - [Multichain](http://www.multichain.com/)
