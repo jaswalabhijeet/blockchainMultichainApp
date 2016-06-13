@@ -86,8 +86,9 @@ module.exports = function(app){
 		var connection = app.infra.connectionFactory;
 		
 		console.log("sendWithMetadata-JSON: "+JSON.stringify(naoconformidade));
-		console.log("sendWithMetadata-HEX: "+toHex(naoconformidade));
-		console.log("sendWithMetadata-HEX: "+fromHex(naoconformidade));
+		var valorHex = toHex(JSON.stringify(naoconformidade));
+		console.log("sendWithMetadata-HEX: "+valorHex);
+		console.log("sendWithMetadata-STRING: "+fromHex(valorHex));
 		
 		connection.sendWithMetadata(
 				{"address": naoconformidade.address, "amount": 0, "data": "7b2264617461223a2022323031362d30362d31312032313a31373a3030222c202264657363726963616f223a202246616c74612064652075736f20646f206361706163657465227d"},
