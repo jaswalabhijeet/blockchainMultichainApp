@@ -21,7 +21,7 @@ module.exports = function(app){
 			console.log("listAddressTransactions-Result: "+JSON.stringify(result));
 			
 			if(err){
-				return next(err);
+				return next(JSON.stringify(err));
         	}
 			
 			res.render('naoconformidade/listagem.ejs', {lista: {}});
