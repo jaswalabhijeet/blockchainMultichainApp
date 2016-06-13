@@ -9,8 +9,10 @@ module.exports = function(app){
 			if(err){
 			
 				return next(err);
-	    	}	       	 	    	
-
+	    	}	       	 	
+			
+			console.log(result);
+			
 	    	res.render('home/index', {lista: {}, info: result});
 		});
 		
