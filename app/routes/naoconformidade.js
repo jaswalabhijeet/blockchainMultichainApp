@@ -69,7 +69,7 @@ module.exports = function(app){
 		
 		var connection = app.infra.connectionFactory;
 		
-		console.log("Nao Conformidade: "+naoconformidade);
+		console.log("Nao Conformidade: "+naoconformidade[0]);
 		
 //		connection.sendwithmetadata({"address": naoconformidade.address, "amount": 0, "data": naoconformidade},(err, result) => {
 //			
