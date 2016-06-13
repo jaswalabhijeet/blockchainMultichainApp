@@ -22,7 +22,7 @@
 	
 	<script type="text/javascript">
 		
-		function timeConverter(UNIX_timestamp) {
+		function fnTimeConverter(UNIX_timestamp) {
 			var a = new Date(UNIX_timestamp * 1000);
 			var months = [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul',
 					'Ago', 'Set', 'Out', 'Nov', 'Dez' ];
@@ -73,7 +73,7 @@
 									<%=lista[i].txid%>
 								</td>
 								<td>
-									<%=timeConverter(lista[i].time)%>
+									fnTimeConverter(<%=lista[i].time%>)
 								</td>
 							</tr>
 						<%}%>
