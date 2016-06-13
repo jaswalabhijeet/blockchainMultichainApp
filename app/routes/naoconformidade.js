@@ -13,7 +13,7 @@ module.exports = function(app){
 		//["address", {"count": 10}, {"skip": 0}, {"verbose": false}]
 		
 		connection.listAddressTransactions(
-				{"address": addressParam, "count": parseInt(qtdRegistros)},
+				{"address": addressParam, "count": parseInt(qtdRegistros), "verbose":true},
 				(err, result) => {
 			
 			console.log("listAddressTransactions-Err: "+JSON.stringify(err));

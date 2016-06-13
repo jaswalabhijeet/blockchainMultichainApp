@@ -63,7 +63,7 @@
 					<thead>
 						<tr>
 							<th>ID. Transação</th>
-							<th>time</th>
+							<th>Unix timestamp</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -73,7 +73,7 @@
 									<%=lista[i].txid%>
 								</td>
 								<td>
-									fnTimeConverter(<%=lista[i].time%>)
+									<%=lista[i].time%>
 								</td>
 							</tr>
 						<%}%>
