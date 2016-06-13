@@ -1,4 +1,27 @@
+function fromHex(hex,str){
+  try{
+    str = decodeURIComponent(hex.replace(/(..)/g,'%$1'));
+  }
+  catch(e){
+    str = hex;
+    console.log('invalid hex input: ' + hex);
+  }
+  return str;
+}
 
+function toHex(str,hex){
+  try{
+    hex = unescape(encodeURIComponent(str));
+    .split('').map(function(v){
+      return v.charCodeAt(0).toString(16);
+    }).join('');
+  }
+  catch(e){
+    hex = str;
+    console.log('invalid text input: ' + str);
+  }
+  return hex;
+}
 module.exports = function(app){
 	
 	app.get('/naoconformidade', function(req, res, next){
@@ -8,17 +31,10 @@ module.exports = function(app){
 		var addressParam = req.query.address;
 
 		var qtdRegistros = req.query.qtdRegistros;
-		console.log(addressParam +" || "+qtdRegistros);
 
-		//["address", {"count": 10}, {"skip": 0}, {"verbose": false}]
-		
 		connection.listAddressTransactions(
 				{"address": addressParam, "count": parseInt(qtdRegistros)},
 				(err, result) => {
-			
-			console.log("listAddressTransactions-Err: "+JSON.stringify(err));
-			
-			console.log("listAddressTransactions-Result: "+JSON.stringify(result));
 			
 			if(err){
 				return next(JSON.stringify(err));
@@ -69,8 +85,9 @@ module.exports = function(app){
 		
 		var connection = app.infra.connectionFactory;
 		
-		console.log("sendWithMetadata-Address: "+naoconformidade.address);
 		console.log("sendWithMetadata-JSON: "+JSON.stringify(naoconformidade));
+		console.log("sendWithMetadata-HEX: "+toHex(naoconformidade));
+		console.log("sendWithMetadata-HEX: "+fromHex(naoconformidade));
 		
 		connection.sendWithMetadata(
 				{"address": naoconformidade.address, "amount": 0, "data": "7b2264617461223a2022323031362d30362d31312032313a31373a3030222c202264657363726963616f223a202246616c74612064652075736f20646f206361706163657465227d"},
