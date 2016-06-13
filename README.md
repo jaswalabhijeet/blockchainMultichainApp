@@ -1,4 +1,4 @@
-# blockchainMultichainApp
+# Registro de Não conformidade com Multichain + NodeJS[blockchainMultichainApp]
 Exemplo de comunicação via Json RPC com o blockchain da Multichain, sem fee(Taxa) para simular registos de ocorrencia de não conformidade.[EM Evolução]
 
 ## Instalação do Blockchain[Multichain]
@@ -65,25 +65,19 @@ Antes de mais nada, é importante que o seu linux esteja devidamente atualizado,
 sudo apt-get update
 ```
 
-Após isso, vá para o diretório onde será implementada a nossa aplicação e execute os seguintes comandos:
+Após isso, vá para o diretório onde será implementada a nossa aplicação e execute o clone deste Git:
 ```sh
-npm install multichain-node --save
-npm install express --save
-npm install body-parser --save
-```
-
-Pronto, agora nossas dependências estão devidamente gerenciadas, agora vamos baixar o app disponível neste git com o comando(Para tal é necessário ter configurado a chave SSH para o GIT conforme documentação oficial [Git SSH](https://help.github.com/articles/generating-an-ssh-key/)):
-```sh
-git clone https://github.com/blockchainMultichainApp
+git clone https://github.com/rodolfocruzbsb/blockchainMultichainApp.git
 ```
 
 ## Subindo nossa App
-Agora basta subir nossa aplicação com o NodeJs
+Agora basta instalar as dependencias da aplicação node, e executar nosso web server:
 ```sh
-node main.js
+npm install
+npm start
 ```
 
-Acesse a app por: [localhost:8181](localhost:8181)
+Acesse a app por: [localhost:8080](localhost:8080)
 
 ## Referências
 
